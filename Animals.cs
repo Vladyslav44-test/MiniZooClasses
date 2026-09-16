@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace MiniZooClasses
 {
+    interface ISwimmer
+    {
+        void Swim();
+    }
+
+    interface IPackHunter
+    {
+        void HuntInPack();
+    }
+
     internal abstract class Animal
     {
         public abstract void MakeNoise();
     }
 
-    class Hippo : Animal
+    class Hippo : Animal, ISwimmer
     {
         public override void MakeNoise()
         {
@@ -28,7 +38,7 @@ namespace MiniZooClasses
         public bool BelongsToPack { get; protected set; } = false;
     }
 
-    class Wolf : Canine
+    class Wolf : Canine, IPackHunter
     {
         public override void MakeNoise()
         {
